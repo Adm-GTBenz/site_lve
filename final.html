@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>para ti mi corazon🥹🥹</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom right, #fee2e2, #fecaca);
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .emoji-container {
+            position: relative;
+        }
+
+        .emoji {
+            font-size: 8rem;
+            position: absolute;
+            transition: opacity 500ms ease-in-out;
+        }
+
+        .emoji-placeholder {
+            font-size: 8rem;
+            opacity: 0;
+        }
+
+        .heart {
+            position: absolute;
+            top: -1rem;
+            right: -1rem;
+            color: #ef4444;
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        .title {
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #db2777;
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .5;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="emoji-container">
+        <div class="emoji" id="currentEmoji">😍</div>
+        <div class="emoji-placeholder">😍</div>
+    </div>
+    <div class="title" style="text-align: center;">
+        🌸🥰 Para ti, amor de mi vida 😍💋
+    </div>
+    <script>
+        const emojis = ['🥺', '😍', '😘', '💍', '❤️‍🩹'];
+        let currentIndex = 0;
+        let nextIndex = 1;
+        const emojiElement = document.getElementById('currentEmoji');
+
+        function updateEmoji() {
+            emojiElement.style.opacity = '0';
+            
+            setTimeout(() => {
+                currentIndex = nextIndex;
+                nextIndex = (nextIndex + 1) % emojis.length;
+                emojiElement.textContent = emojis[currentIndex];
+                emojiElement.style.opacity = '1';
+            }, 500);
+        }
+
+        setInterval(updateEmoji, 2000);
+    </script>
+</body>
+</html>
